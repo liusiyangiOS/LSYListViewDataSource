@@ -1,0 +1,14 @@
+platform :ios, "9.0"
+workspace       "LSYListViewDataSourceDemo"
+project "LSYListViewDataSourceDemo.xcodeproj"
+
+
+
+target "LSYListViewDataSourceDemo" do
+project "LSYListViewDataSourceDemo.xcodeproj"
+use_frameworks!
+
+pod 'MJRefresh'
+
+end
+
