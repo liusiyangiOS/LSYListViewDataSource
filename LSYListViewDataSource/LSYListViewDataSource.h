@@ -38,6 +38,9 @@ typedef void (^ LSYListViewLoadDataBlock)(LSYListViewDataSource *dataSource, NSI
 /** 后台总数据量,可不填写 */
 @property (assign, nonatomic) NSInteger total;
 
+/** 没有更多数据的时候是否移除Footer */
+@property (assign, nonatomic) BOOL removeFooterWhenNoMoreData;
+
 /** block会引起循环引用 */
 - (instancetype)initWithListView:(UIScrollView *)listView
                          options:(LSYListViewRefreshOption)options

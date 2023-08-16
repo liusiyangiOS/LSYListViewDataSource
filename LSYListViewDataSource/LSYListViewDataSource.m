@@ -60,8 +60,11 @@
         [_listView.mj_footer endRefreshing];
         [_dataList addObjectsFromArray:list];
         if (_dataList.count == _total || list.count < self.pageSize) {
-//            _tableView.mj_footer = nil;
-            [_listView.mj_footer resetNoMoreData];
+            if (_removeFooterWhenNoMoreData) {
+                _listView.mj_footer = nil;
+            } else {
+                [_listView.mj_footer resetNoMoreData];
+            }
         }
     }
     [self reloadData];
