@@ -10,11 +10,9 @@
 
 @interface TableViewController (){
     __weak IBOutlet UITableView *_tableView;
-    
-    NSInteger _pageSize;
     NSInteger _total;
 }
-
+@property (assign, nonatomic) NSInteger pageSize;
 @end
 
 @implementation TableViewController
@@ -31,7 +29,12 @@
     [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Cell"];
     
     __weak typeof(self) weakSelf = self;
-    [_tableView lsy_addDataSourceWithOptions:LSYListViewRefreshOptionHeader|LSYListViewRefreshOptionFooter loadData:^(LSYListViewDataSource * _Nonnull dataSource, NSInteger pageIndex) {
+    [_tableView lsy_addDataSourceWithConfigBlock:^(LSYListViewDataSource * _Nonnull dataSource) {
+        dataSource.options = LSYListViewRefreshOptionHeader|LSYListViewRefreshOptionFooter;
+        dataSource.startIndex = 1;
+        dataSource.pageSize = weakSelf.pageSize;
+        dataSource.removeFooterWhenNoMoreData = YES;
+    } loadData:^(LSYListViewDataSource * _Nonnull dataSource, NSInteger pageIndex) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf loadDataWithPageIndex:pageIndex];
         });
@@ -40,7 +43,7 @@
         cell.textLabel.text = data;
         return cell;
     }];
-    _tableView.lsy_dataSource.pageSize = _pageSize;
+    
     [_tableView.mj_header beginRefreshing];
 }
 

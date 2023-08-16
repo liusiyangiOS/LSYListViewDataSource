@@ -13,7 +13,6 @@
 @interface LSYListViewDataSource (){
     NSInteger _page;
     LSYListViewLoadDataBlock _loadData;
-    LSYListViewRefreshOption _options;
 }
 @end
 
@@ -24,14 +23,16 @@
 }
 
 - (instancetype)initWithListView:(UIScrollView *)listView
-                         options:(LSYListViewRefreshOption)options
+                     configBlock:(LSYListViewConfigBlock)configBlock
                 loadDataCallBack:(LSYListViewLoadDataBlock)loadData{
     self = [super init];
     if (self) {
         _listView = listView;
         _loadData = [loadData copy];
-        _options = options;
-        if (options & LSYListViewRefreshOptionHeader) {
+        if (configBlock) {
+            configBlock(self);
+        }
+        if (_options & LSYListViewRefreshOptionHeader) {
             _listView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
                 [self refresh];
             }];

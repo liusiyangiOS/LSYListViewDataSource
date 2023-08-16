@@ -11,10 +11,9 @@
 
 @interface CollectionViewController (){
     __weak IBOutlet UICollectionView *_collectionView;
-    
-    NSInteger _pageSize;
     NSInteger _total;
 }
+@property (assign, nonatomic) NSInteger pageSize;
 @end
 
 @implementation CollectionViewController
@@ -31,7 +30,12 @@
     flowLayout.itemSize = CGSizeMake((UIScreen.mainScreen.bounds.size.width - 30) / 2, 200);
     
     __weak typeof(self) weakSelf = self;
-    [_collectionView lsy_addDataSourceWithOptions:LSYListViewRefreshOptionHeader|LSYListViewRefreshOptionFooter loadData:^(LSYListViewDataSource * _Nonnull dataSource, NSInteger pageIndex) {
+    [_collectionView lsy_addDataSourceWithConfigBlock:^(LSYListViewDataSource * _Nonnull dataSource) {
+        dataSource.options = LSYListViewRefreshOptionHeader|LSYListViewRefreshOptionFooter;
+        dataSource.startIndex = 1;
+        dataSource.pageSize = weakSelf.pageSize;
+        dataSource.removeFooterWhenNoMoreData = YES;
+    } loadData:^(LSYListViewDataSource * _Nonnull dataSource, NSInteger pageIndex) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf loadDataWithPageIndex:pageIndex];
         });
@@ -40,7 +44,6 @@
         cell.textLabel.text = data;
         return cell;
     }];
-    _collectionView.lsy_dataSource.pageSize = _pageSize;
     [_collectionView.mj_header beginRefreshing];
 }
 

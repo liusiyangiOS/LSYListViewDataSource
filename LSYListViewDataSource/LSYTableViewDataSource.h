@@ -26,9 +26,9 @@ typedef UITableViewCell * _Nonnull (^ LSYTableViewGetCellBlock)(LSYTableViewData
 @property (strong, nonatomic) LSYTableViewDataSource *lsy_dataSource;
 
 /** 添加dataSource,block会引起循环引用 */
-- (void)lsy_addDataSourceWithOptions:(LSYListViewRefreshOption)options
-                            loadData:(LSYListViewLoadDataBlock)loadData
-                             getCell:(LSYTableViewGetCellBlock)getCell;
+- (void)lsy_addDataSourceWithConfigBlock:(LSYListViewConfigBlock)configBlock
+                                loadData:(LSYListViewLoadDataBlock)loadData
+                                 getCell:(LSYTableViewGetCellBlock)getCell;
 
 @end
 

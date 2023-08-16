@@ -26,9 +26,9 @@ typedef UICollectionViewCell * _Nonnull (^ LSYCollectionViewGetCellBlock)(LSYCol
 @property (strong, nonatomic) LSYCollectionViewDataSource *lsy_dataSource;
 
 /** 添加dataSource,block会引起循环引用 */
-- (void)lsy_addDataSourceWithOptions:(LSYListViewRefreshOption)options
-                            loadData:(LSYListViewLoadDataBlock)loadData
-                             getCell:(LSYCollectionViewGetCellBlock)getCell;
+- (void)lsy_addDataSourceWithConfigBlock:(LSYListViewConfigBlock)configBlock
+                                loadData:(LSYListViewLoadDataBlock)loadData
+                                 getCell:(LSYCollectionViewGetCellBlock)getCell;
 
 @end
 

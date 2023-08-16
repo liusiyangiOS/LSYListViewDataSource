@@ -19,12 +19,16 @@ typedef NS_ENUM(NSInteger,LSYListViewRefreshOption){
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^ LSYListViewLoadDataBlock)(LSYListViewDataSource *dataSource, NSInteger pageIndex);
+typedef void (^ LSYListViewConfigBlock)(LSYListViewDataSource *dataSource);
 
 @interface LSYListViewDataSource : NSObject{
     NSMutableArray *_dataList;
 }
 
 @property (weak, nonatomic, readonly) UIScrollView *listView;
+
+/** 需要使用的功能选项 */
+@property (assign, nonatomic) LSYListViewRefreshOption options;
 
 /** 数据列表,外界不需要管理 */
 @property (copy, nonatomic, readonly) NSMutableArray *dataList;
@@ -43,7 +47,7 @@ typedef void (^ LSYListViewLoadDataBlock)(LSYListViewDataSource *dataSource, NSI
 
 /** block会引起循环引用 */
 - (instancetype)initWithListView:(UIScrollView *)listView
-                         options:(LSYListViewRefreshOption)options
+                     configBlock:(LSYListViewConfigBlock)configBlock
                 loadDataCallBack:(LSYListViewLoadDataBlock)loadData;
 
 /** 停止刷新 */

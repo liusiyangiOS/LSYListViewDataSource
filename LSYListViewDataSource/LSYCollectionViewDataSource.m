@@ -48,10 +48,10 @@
 
 @implementation UICollectionView (LSYDataSource)
 
-- (void)lsy_addDataSourceWithOptions:(LSYListViewRefreshOption)options
-                            loadData:(LSYListViewLoadDataBlock)loadData
-                             getCell:(LSYCollectionViewGetCellBlock)getCell{
-    LSYCollectionViewDataSource *ds = [[LSYCollectionViewDataSource alloc] initWithListView:self options:options loadDataCallBack:loadData];
+- (void)lsy_addDataSourceWithConfigBlock:(LSYListViewConfigBlock)configBlock
+                                loadData:(LSYListViewLoadDataBlock)loadData
+                                 getCell:(LSYCollectionViewGetCellBlock)getCell{
+    LSYCollectionViewDataSource *ds = [[LSYCollectionViewDataSource alloc] initWithListView:self configBlock:configBlock loadDataCallBack:loadData];
     ds.getCellCallback = getCell;
     self.lsy_dataSource = ds;
 }
