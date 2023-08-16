@@ -78,21 +78,43 @@
             </objects>
             <point key="canvasLocation" x="1907.6335877862596" y="-212.67605633802819"/>
         </scene>
-        <!--View Controller-->
+        <!--Collection View Controller-->
         <scene sceneID="5fc-Q0-mQa">
             <objects>
-                <viewController id="Fkl-XD-6KS" sceneMemberID="viewController">
+                <viewController id="Fkl-XD-6KS" customClass="CollectionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kFL-Kf-7ZE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RZW-0J-dEh">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kff-Po-Ckr">
+                                    <size key="itemSize" width="184" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="E7g-AK-jTL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RZW-0J-dEh" firstAttribute="bottom" secondItem="E7g-AK-jTL" secondAttribute="bottom" id="Z8t-Pa-FhK"/>
+                            <constraint firstItem="RZW-0J-dEh" firstAttribute="leading" secondItem="E7g-AK-jTL" secondAttribute="leading" id="aeb-V9-Bg3"/>
+                            <constraint firstItem="RZW-0J-dEh" firstAttribute="top" secondItem="E7g-AK-jTL" secondAttribute="top" id="edi-hW-v84"/>
+                            <constraint firstItem="RZW-0J-dEh" firstAttribute="centerX" secondItem="kFL-Kf-7ZE" secondAttribute="centerX" id="mUK-fM-g6j"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="at6-DH-3Bt"/>
+                    <connections>
+                        <outlet property="_collectionView" destination="RZW-0J-dEh" id="KM3-Pj-yxW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdK-af-4u5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1908" y="487"/>
+            <point key="canvasLocation" x="1907.6335877862596" y="486.61971830985919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FR2-4b-r0S">

@@ -48,13 +48,12 @@
 
 @implementation UITableView (LSYDataSource)
 
-- (LSYTableViewDataSource *)lsy_addDataSourceWithOptions:(LSYListViewRefreshOption)options
-                                                loadData:(LSYListViewLoadDataBlock)loadData
-                                                 getCell:(LSYTableViewGetCellBlock)getCell{
+- (void)lsy_addDataSourceWithOptions:(LSYListViewRefreshOption)options
+                            loadData:(LSYListViewLoadDataBlock)loadData
+                             getCell:(LSYTableViewGetCellBlock)getCell{
     LSYTableViewDataSource *ds = [[LSYTableViewDataSource alloc] initWithListView:self options:options loadDataCallBack:loadData];
     ds.getCellCallback = getCell;
     self.lsy_dataSource = ds;
-    return ds;
 }
 
 -(void)setLsy_dataSource:(LSYTableViewDataSource *)lsy_dataSource{

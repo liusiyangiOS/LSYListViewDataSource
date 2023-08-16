@@ -19,6 +19,8 @@
 		376AAF352A8B4E4F0055CF0F /* LSYListViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AAF342A8B4E4F0055CF0F /* LSYListViewDataSource.m */; };
 		376AAF392A8B6FD90055CF0F /* LSYTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AAF382A8B6FD90055CF0F /* LSYTableViewDataSource.m */; };
 		376AAF3C2A8B6FF00055CF0F /* LSYCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AAF3B2A8B6FF00055CF0F /* LSYCollectionViewDataSource.m */; };
+		376AAF3F2A8BA0380055CF0F /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AAF3E2A8BA0380055CF0F /* CollectionViewController.m */; };
+		376AAF422A8BA5E50055CF0F /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AAF412A8BA5E50055CF0F /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,10 @@
 		376AAF382A8B6FD90055CF0F /* LSYTableViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSYTableViewDataSource.m; sourceTree = "<group>"; };
 		376AAF3A2A8B6FF00055CF0F /* LSYCollectionViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSYCollectionViewDataSource.h; sourceTree = "<group>"; };
 		376AAF3B2A8B6FF00055CF0F /* LSYCollectionViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSYCollectionViewDataSource.m; sourceTree = "<group>"; };
+		376AAF3D2A8BA0380055CF0F /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		376AAF3E2A8BA0380055CF0F /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		376AAF402A8BA5E50055CF0F /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		376AAF412A8BA5E50055CF0F /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		4CA0C19A4C8E586AEBC61DD7 /* Pods_LSYListViewDataSourceDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LSYListViewDataSourceDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB71DB746D7D42F1E6505E1 /* Pods-LSYListViewDataSourceDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSYListViewDataSourceDemo.debug.xcconfig"; path = "Target Support Files/Pods-LSYListViewDataSourceDemo/Pods-LSYListViewDataSourceDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +95,10 @@
 				376AAF172A8B2AD00055CF0F /* ViewController.m */,
 				376AAF2D2A8B4C280055CF0F /* TableViewController.h */,
 				376AAF2E2A8B4C280055CF0F /* TableViewController.m */,
+				376AAF3D2A8BA0380055CF0F /* CollectionViewController.h */,
+				376AAF3E2A8BA0380055CF0F /* CollectionViewController.m */,
+				376AAF402A8BA5E50055CF0F /* CollectionViewCell.h */,
+				376AAF412A8BA5E50055CF0F /* CollectionViewCell.m */,
 				376AAF192A8B2AD00055CF0F /* Main.storyboard */,
 				376AAF1C2A8B2AD10055CF0F /* Assets.xcassets */,
 				376AAF1E2A8B2AD10055CF0F /* LaunchScreen.storyboard */,
@@ -249,8 +259,10 @@
 				376AAF122A8B2AD00055CF0F /* AppDelegate.m in Sources */,
 				376AAF232A8B2AD10055CF0F /* main.m in Sources */,
 				376AAF352A8B4E4F0055CF0F /* LSYListViewDataSource.m in Sources */,
+				376AAF422A8BA5E50055CF0F /* CollectionViewCell.m in Sources */,
 				376AAF392A8B6FD90055CF0F /* LSYTableViewDataSource.m in Sources */,
 				376AAF152A8B2AD00055CF0F /* SceneDelegate.m in Sources */,
+				376AAF3F2A8BA0380055CF0F /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
