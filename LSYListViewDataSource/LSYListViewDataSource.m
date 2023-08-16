@@ -32,8 +32,9 @@
         if (configBlock) {
             configBlock(self);
         }
-        if (_options & LSYListViewRefreshOptionHeader) {
-            _listView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        if (_options & LSYListViewRefreshOptionHeader &&
+            [self.headerClass respondsToSelector:@selector(headerWithRefreshingBlock:)]) {
+            _listView.mj_header = [self.headerClass performSelector:@selector(headerWithRefreshingBlock:) withObject:^{
                 [self refresh];
             }];
         }
@@ -48,9 +49,9 @@
         }
         if (list && list.count) {
             _dataList = [NSMutableArray arrayWithArray:list];
-            if (_options & LSYListViewRefreshOptionFooter) {
+            if (!_listView.mj_footer && _options & LSYListViewRefreshOptionFooter) {
                 if ((_total && _dataList.count < _total) || list.count == self.pageSize) {
-                    _listView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+                    _listView.mj_footer = [self.footerClass performSelector:@selector(footerWithRefreshingBlock:) withObject:^{
                         _page++;
                         _loadData(self,_page);
                     }];
@@ -60,7 +61,7 @@
     }else{
         [_listView.mj_footer endRefreshing];
         [_dataList addObjectsFromArray:list];
-        if (_dataList.count == _total || list.count < self.pageSize) {
+        if (_listView.mj_footer && (_dataList.count == _total || list.count < self.pageSize)) {
             if (_removeFooterWhenNoMoreData) {
                 _listView.mj_footer = nil;
             } else {
@@ -100,6 +101,20 @@
         _pageSize = kRequestDefaultPageSize;
     }
     return _pageSize;
+}
+
+-(Class)headerClass{
+    if (!_headerClass) {
+        _headerClass = MJRefreshNormalHeader.class;
+    }
+    return _headerClass;
+}
+
+-(Class)footerClass{
+    if (!_footerClass) {
+        _footerClass = MJRefreshAutoFooter.class;
+    }
+    return _footerClass;
 }
 
 @end

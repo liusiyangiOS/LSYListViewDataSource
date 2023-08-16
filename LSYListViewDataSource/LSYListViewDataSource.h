@@ -24,26 +24,24 @@ typedef void (^ LSYListViewConfigBlock)(LSYListViewDataSource *dataSource);
 @interface LSYListViewDataSource : NSObject{
     NSMutableArray *_dataList;
 }
-
-@property (weak, nonatomic, readonly) UIScrollView *listView;
-
 /** 需要使用的功能选项 */
 @property (assign, nonatomic) LSYListViewRefreshOption options;
-
+/** 自定义header类,默认是MJRefreshNormalHeader */
+@property (assign, nonatomic) Class headerClass;
+/** 自定义footer类,默认是MJRefreshAutoFooter */
+@property (assign, nonatomic) Class footerClass;
 /** 数据列表,外界不需要管理 */
 @property (copy, nonatomic, readonly) NSMutableArray *dataList;
-
 /** 请求的数据的起始索引值,默认0 */
 @property (assign, nonatomic) NSInteger startIndex;
-
 /** 每次请求的数据量,默认10 */
 @property (assign, nonatomic) NSInteger pageSize;
-
 /** 后台总数据量,可不填写 */
 @property (assign, nonatomic) NSInteger total;
-
 /** 没有更多数据的时候是否移除Footer */
 @property (assign, nonatomic) BOOL removeFooterWhenNoMoreData;
+
+@property (weak, nonatomic, readonly) UIScrollView *listView;
 
 /** block会引起循环引用 */
 - (instancetype)initWithListView:(UIScrollView *)listView
