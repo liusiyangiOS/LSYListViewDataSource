@@ -59,14 +59,16 @@
             }
         }
     }else{
-        [_listView.mj_footer endRefreshing];
         [_dataList addObjectsFromArray:list];
         if (_listView.mj_footer && (_dataList.count == _total || list.count < self.pageSize)) {
             if (_removeFooterWhenNoMoreData) {
+                [_listView.mj_footer endRefreshing];
                 _listView.mj_footer = nil;
             } else {
-                [_listView.mj_footer resetNoMoreData];
+                [_listView.mj_footer endRefreshingWithNoMoreData];
             }
+        }else{
+            [_listView.mj_footer endRefreshing];
         }
     }
     [self reloadData];

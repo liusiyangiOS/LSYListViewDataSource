@@ -8,12 +8,17 @@
 #import "CollectionViewController.h"
 #import "LSYCollectionViewDataSource.h"
 #import "CollectionViewCell.h"
+#import "GifRefreshHeader.h"
+#import "GifRefreshFooter.h"
+#import "XXXListRequest.h"
 
 @interface CollectionViewController (){
     __weak IBOutlet UICollectionView *_collectionView;
-    NSInteger _total;
 }
+@property (assign, nonatomic) NSInteger pageIndex;
 @property (assign, nonatomic) NSInteger pageSize;
+
+@property (copy, nonatomic) NSMutableArray *dataList;
 @end
 
 @implementation CollectionViewController
@@ -21,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _pageSize = 5;
-    _total = 29;
     
     [_collectionView registerClass:CollectionViewCell.class forCellWithReuseIdentifier:@"Cell"];
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)_collectionView.collectionViewLayout;
@@ -35,6 +39,8 @@
         dataSource.startIndex = 1;
         dataSource.pageSize = weakSelf.pageSize;
         dataSource.removeFooterWhenNoMoreData = YES;
+        dataSource.headerClass = GifRefreshHeader.class;
+        dataSource.footerClass = GifRefreshFooter.class;
     } loadData:^(LSYListViewDataSource * _Nonnull dataSource, NSInteger pageIndex) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf loadDataWithPageIndex:pageIndex];
@@ -48,15 +54,15 @@
 }
 
 - (void)loadDataWithPageIndex:(NSInteger)pageIndex{
-    NSMutableArray *resultArr = [NSMutableArray arrayWithCapacity:_pageSize];
-    for (int i = 0; i < _pageSize; i ++) {
-        if (i >= _total - pageIndex * _pageSize) {
-            break;
-        }
-        [resultArr addObject:[NSString stringWithFormat:@"第%ld页数据",pageIndex]];
-    }
-    _collectionView.lsy_dataSource.total = _total;
-    [_collectionView.lsy_dataSource endRefreshWithDataList:resultArr.copy];
+    XXXListRequest *request = [[XXXListRequest alloc] init];
+    request.pageIndex = pageIndex;
+    request.pageSize = _pageSize;
+    [request startRequestWithSuccessBlock:^(XXXListResult *responseData) {
+        _collectionView.lsy_dataSource.total = responseData.total;
+        [_collectionView.lsy_dataSource endRefreshWithDataList:responseData.list];
+    } failureBlock:^(NSError *error) {
+        //show fail toast
+    }];
 }
 
 @end

@@ -22,6 +22,11 @@
 		376AAF3F2A8BA0380055CF0F /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AAF3E2A8BA0380055CF0F /* CollectionViewController.m */; };
 		376AAF422A8BA5E50055CF0F /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AAF412A8BA5E50055CF0F /* CollectionViewCell.m */; };
 		376B964F2A8CE9C000D3FB46 /* GifRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 376B964E2A8CE9C000D3FB46 /* GifRefreshHeader.m */; };
+		376B96522A8D013100D3FB46 /* GifRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 376B96512A8D013100D3FB46 /* GifRefreshFooter.m */; };
+		378BDA612A93522200A2DCDB /* YourBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 378BDA562A93522200A2DCDB /* YourBaseRequest.m */; };
+		378BDA622A93522200A2DCDB /* XXXListResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 378BDA572A93522200A2DCDB /* XXXListResult.m */; };
+		378BDA632A93522200A2DCDB /* YourBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 378BDA592A93522200A2DCDB /* YourBaseResponse.m */; };
+		378BDA662A93522200A2DCDB /* XXXListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 378BDA5F2A93522200A2DCDB /* XXXListRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,16 @@
 		376AAF412A8BA5E50055CF0F /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		376B964D2A8CE9C000D3FB46 /* GifRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifRefreshHeader.h; sourceTree = "<group>"; };
 		376B964E2A8CE9C000D3FB46 /* GifRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifRefreshHeader.m; sourceTree = "<group>"; };
+		376B96502A8D013100D3FB46 /* GifRefreshFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifRefreshFooter.h; sourceTree = "<group>"; };
+		376B96512A8D013100D3FB46 /* GifRefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifRefreshFooter.m; sourceTree = "<group>"; };
+		378BDA562A93522200A2DCDB /* YourBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourBaseRequest.m; sourceTree = "<group>"; };
+		378BDA572A93522200A2DCDB /* XXXListResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXXListResult.m; sourceTree = "<group>"; };
+		378BDA582A93522200A2DCDB /* XXXListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXXListRequest.h; sourceTree = "<group>"; };
+		378BDA592A93522200A2DCDB /* YourBaseResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourBaseResponse.m; sourceTree = "<group>"; };
+		378BDA5C2A93522200A2DCDB /* XXXListResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXXListResult.h; sourceTree = "<group>"; };
+		378BDA5D2A93522200A2DCDB /* YourBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourBaseRequest.h; sourceTree = "<group>"; };
+		378BDA5E2A93522200A2DCDB /* YourBaseResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourBaseResponse.h; sourceTree = "<group>"; };
+		378BDA5F2A93522200A2DCDB /* XXXListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXXListRequest.m; sourceTree = "<group>"; };
 		4CA0C19A4C8E586AEBC61DD7 /* Pods_LSYListViewDataSourceDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LSYListViewDataSourceDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB71DB746D7D42F1E6505E1 /* Pods-LSYListViewDataSourceDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSYListViewDataSourceDemo.debug.xcconfig"; path = "Target Support Files/Pods-LSYListViewDataSourceDemo/Pods-LSYListViewDataSourceDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				376AAF292A8B2F2E0055CF0F /* LSYListViewDataSource */,
+				378BDA552A93522200A2DCDB /* Network */,
 				376AAF102A8B2AD00055CF0F /* AppDelegate.h */,
 				376AAF112A8B2AD00055CF0F /* AppDelegate.m */,
 				376AAF132A8B2AD00055CF0F /* SceneDelegate.h */,
@@ -104,6 +120,8 @@
 				376AAF412A8BA5E50055CF0F /* CollectionViewCell.m */,
 				376B964D2A8CE9C000D3FB46 /* GifRefreshHeader.h */,
 				376B964E2A8CE9C000D3FB46 /* GifRefreshHeader.m */,
+				376B96502A8D013100D3FB46 /* GifRefreshFooter.h */,
+				376B96512A8D013100D3FB46 /* GifRefreshFooter.m */,
 				376AAF192A8B2AD00055CF0F /* Main.storyboard */,
 				376AAF1C2A8B2AD10055CF0F /* Assets.xcassets */,
 				376AAF1E2A8B2AD10055CF0F /* LaunchScreen.storyboard */,
@@ -125,6 +143,21 @@
 			);
 			name = LSYListViewDataSource;
 			path = ../../LSYListViewDataSource;
+			sourceTree = "<group>";
+		};
+		378BDA552A93522200A2DCDB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				378BDA5D2A93522200A2DCDB /* YourBaseRequest.h */,
+				378BDA562A93522200A2DCDB /* YourBaseRequest.m */,
+				378BDA5E2A93522200A2DCDB /* YourBaseResponse.h */,
+				378BDA592A93522200A2DCDB /* YourBaseResponse.m */,
+				378BDA582A93522200A2DCDB /* XXXListRequest.h */,
+				378BDA5F2A93522200A2DCDB /* XXXListRequest.m */,
+				378BDA5C2A93522200A2DCDB /* XXXListResult.h */,
+				378BDA572A93522200A2DCDB /* XXXListResult.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		54E9020C8541C5EC84CE1586 /* Pods */ = {
@@ -259,12 +292,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				376AAF182A8B2AD00055CF0F /* ViewController.m in Sources */,
+				376B96522A8D013100D3FB46 /* GifRefreshFooter.m in Sources */,
 				376AAF2F2A8B4C280055CF0F /* TableViewController.m in Sources */,
 				376AAF3C2A8B6FF00055CF0F /* LSYCollectionViewDataSource.m in Sources */,
+				378BDA622A93522200A2DCDB /* XXXListResult.m in Sources */,
 				376AAF122A8B2AD00055CF0F /* AppDelegate.m in Sources */,
+				378BDA632A93522200A2DCDB /* YourBaseResponse.m in Sources */,
 				376AAF232A8B2AD10055CF0F /* main.m in Sources */,
 				376AAF352A8B4E4F0055CF0F /* LSYListViewDataSource.m in Sources */,
+				378BDA612A93522200A2DCDB /* YourBaseRequest.m in Sources */,
 				376AAF422A8BA5E50055CF0F /* CollectionViewCell.m in Sources */,
+				378BDA662A93522200A2DCDB /* XXXListRequest.m in Sources */,
 				376AAF392A8B6FD90055CF0F /* LSYTableViewDataSource.m in Sources */,
 				376B964F2A8CE9C000D3FB46 /* GifRefreshHeader.m in Sources */,
 				376AAF152A8B2AD00055CF0F /* SceneDelegate.m in Sources */,
@@ -410,6 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -437,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

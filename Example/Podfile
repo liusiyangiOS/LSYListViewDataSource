@@ -9,6 +9,8 @@ project "LSYListViewDataSourceDemo.xcodeproj"
 use_frameworks!
 
 pod 'MJRefresh'
+pod 'LSYNetworking'
+pod 'YYModel'
 
 end
 

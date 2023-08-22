@@ -7,10 +7,10 @@
 
 #import "TableViewController.h"
 #import "LSYTableViewDataSource.h"
+#import "XXXListRequest.h"
 
 @interface TableViewController (){
     __weak IBOutlet UITableView *_tableView;
-    NSInteger _total;
 }
 @property (assign, nonatomic) NSInteger pageSize;
 @end
@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _pageSize = 5;
-    _total = 29;
     
     [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Cell"];
     
@@ -48,15 +47,15 @@
 }
 
 - (void)loadDataWithPageIndex:(NSInteger)pageIndex{
-    NSMutableArray *resultArr = [NSMutableArray arrayWithCapacity:_pageSize];
-    for (int i = 0; i < _pageSize; i ++) {
-        if (i >= _total - pageIndex * _pageSize) {
-            break;
-        }
-        [resultArr addObject:[NSString stringWithFormat:@"第%ld页数据",pageIndex]];
-    }
-    _tableView.lsy_dataSource.total = _total;
-    [_tableView.lsy_dataSource endRefreshWithDataList:resultArr.copy];
+    XXXListRequest *request = [[XXXListRequest alloc] init];
+    request.pageIndex = pageIndex;
+    request.pageSize = 5;
+    [request startRequestWithSuccessBlock:^(XXXListResult *responseData) {
+        _tableView.lsy_dataSource.total = responseData.total;
+        [_tableView.lsy_dataSource endRefreshWithDataList:responseData.copy];
+    } failureBlock:^(NSError *error) {
+        //show fail toast
+    }];
 }
 
 @end

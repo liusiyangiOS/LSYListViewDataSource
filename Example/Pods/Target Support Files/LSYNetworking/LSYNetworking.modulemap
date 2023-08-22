@@ -1,0 +1,6 @@
+framework module LSYNetworking {
+  umbrella header "LSYNetworking-umbrella.h"
+
+  export *
+  module * { export * }
+}
