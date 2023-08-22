@@ -15,17 +15,12 @@
 @interface CollectionViewController (){
     __weak IBOutlet UICollectionView *_collectionView;
 }
-@property (assign, nonatomic) NSInteger pageIndex;
-@property (assign, nonatomic) NSInteger pageSize;
-
-@property (copy, nonatomic) NSMutableArray *dataList;
 @end
 
 @implementation CollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _pageSize = 5;
     
     [_collectionView registerClass:CollectionViewCell.class forCellWithReuseIdentifier:@"Cell"];
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)_collectionView.collectionViewLayout;
@@ -37,7 +32,7 @@
     [_collectionView lsy_addDataSourceWithConfigBlock:^(LSYListViewDataSource * _Nonnull dataSource) {
         dataSource.options = LSYListViewRefreshOptionHeader|LSYListViewRefreshOptionFooter;
         dataSource.startIndex = 1;
-        dataSource.pageSize = weakSelf.pageSize;
+        dataSource.pageSize = 5;
         dataSource.removeFooterWhenNoMoreData = YES;
         dataSource.headerClass = GifRefreshHeader.class;
         dataSource.footerClass = GifRefreshFooter.class;
@@ -56,7 +51,7 @@
 - (void)loadDataWithPageIndex:(NSInteger)pageIndex{
     XXXListRequest *request = [[XXXListRequest alloc] init];
     request.pageIndex = pageIndex;
-    request.pageSize = _pageSize;
+    request.pageSize = _collectionView.lsy_dataSource.pageSize;
     [request startRequestWithSuccessBlock:^(XXXListResult *responseData) {
         _collectionView.lsy_dataSource.total = responseData.total;
         [_collectionView.lsy_dataSource endRefreshWithDataList:responseData.list];
