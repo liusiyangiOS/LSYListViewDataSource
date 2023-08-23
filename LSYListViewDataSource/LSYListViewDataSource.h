@@ -24,7 +24,7 @@ typedef void (^ LSYListViewConfigBlock)(LSYListViewDataSource *dataSource);
 @interface LSYListViewDataSource : NSObject{
     NSMutableArray *_dataList;
 }
-/** 需要使用的功能选项 */
+/** 给listView添加header还是footer，默认都添加 */
 @property (assign, nonatomic) LSYListViewRefreshOption options;
 /** 自定义header类,默认是MJRefreshNormalHeader */
 @property (assign, nonatomic) Class headerClass;

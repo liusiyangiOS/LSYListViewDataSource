@@ -32,11 +32,8 @@
         if (configBlock) {
             configBlock(self);
         }
-        if (_options & LSYListViewRefreshOptionHeader &&
-            [self.headerClass respondsToSelector:@selector(headerWithRefreshingBlock:)]) {
-            _listView.mj_header = [self.headerClass performSelector:@selector(headerWithRefreshingBlock:) withObject:^{
-                [self refresh];
-            }];
+        if (_options == 0) {
+            self.options = LSYListViewRefreshOptionHeader|LSYListViewRefreshOptionFooter;
         }
     }
     return self;
@@ -97,6 +94,21 @@
 - (void)reloadData{}
 
 #pragma mark - setter & getter
+
+-(void)setOptions:(LSYListViewRefreshOption)options{
+    if (_options != options) {
+        _options = options;
+        
+        if (_options & LSYListViewRefreshOptionHeader &&
+            [self.headerClass respondsToSelector:@selector(headerWithRefreshingBlock:)]) {
+            _listView.mj_header = [self.headerClass performSelector:@selector(headerWithRefreshingBlock:) withObject:^{
+                [self refresh];
+            }];
+        }else{
+            _listView.mj_header = nil;
+        }
+    }
+}
 
 -(NSInteger)pageSize{
     if (_pageSize == 0) {
