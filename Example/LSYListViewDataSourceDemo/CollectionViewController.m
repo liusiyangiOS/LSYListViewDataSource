@@ -30,12 +30,11 @@
     
     __weak typeof(self) weakSelf = self;
     [_collectionView lsy_addDataSourceWithConfigBlock:^(LSYListViewDataSource * _Nonnull dataSource) {
-        dataSource.options = LSYListViewRefreshOptionHeader|LSYListViewRefreshOptionFooter;
-        dataSource.startIndex = 1;
-        dataSource.pageSize = 5;
+//        dataSource.options = LSYListViewRefreshOptionHeader|LSYListViewRefreshOptionFooter;
+        dataSource.pageSize = 4;
         dataSource.removeFooterWhenNoMoreData = YES;
-        dataSource.headerClass = GifRefreshHeader.class;
-        dataSource.footerClass = GifRefreshFooter.class;
+//        dataSource.headerClass = GifRefreshHeader.class;
+//        dataSource.footerClass = GifRefreshFooter.class;
     } loadData:^(LSYListViewDataSource * _Nonnull dataSource, NSInteger pageIndex) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf loadDataWithPageIndex:pageIndex];

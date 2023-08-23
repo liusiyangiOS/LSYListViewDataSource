@@ -32,7 +32,7 @@ typedef void (^ LSYListViewConfigBlock)(LSYListViewDataSource *dataSource);
 @property (assign, nonatomic) Class footerClass;
 /** 数据列表,外界不需要管理 */
 @property (copy, nonatomic, readonly) NSMutableArray *dataList;
-/** 请求的数据的起始索引值,默认0 */
+/** 请求数据的起始索引值,默认0 */
 @property (assign, nonatomic) NSInteger startIndex;
 /** 每次请求的数据量,默认10 */
 @property (assign, nonatomic) NSInteger pageSize;

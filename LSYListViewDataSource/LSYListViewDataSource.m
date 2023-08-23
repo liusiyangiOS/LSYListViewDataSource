@@ -18,10 +18,6 @@
 
 @implementation LSYListViewDataSource
 
--(void)dealloc{
-    NSLog(@"%@ dealloc",self.class);
-}
-
 - (instancetype)initWithListView:(UIScrollView *)listView
                      configBlock:(LSYListViewConfigBlock)configBlock
                 loadDataCallBack:(LSYListViewLoadDataBlock)loadData{
