@@ -9,12 +9,24 @@
 
 @implementation GifRefreshFooter
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)prepare{
+    [super prepare];
+    int count = 132;
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 1; i < count + 1; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"footer%d.jpeg",i]];
+        [images addObject:image];
+    }
+    [self setImages:images duration:1 forState:MJRefreshStateIdle];
+    [self setImages:@[images.lastObject] duration:1 forState:MJRefreshStatePulling];
+    [self setImages:images duration:1 forState:MJRefreshStateRefreshing];
+    [self setImages:images duration:1 forState:MJRefreshStateWillRefresh];
 }
-*/
+
+-(void)placeSubviews{
+    [super placeSubviews];
+    self.refreshingTitleHidden = YES;
+    self.stateLabel.hidden = YES;
+}
 
 @end
