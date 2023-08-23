@@ -56,6 +56,7 @@
         _collectionView.lsy_dataSource.total = responseData.total;
         [_collectionView.lsy_dataSource endRefreshWithDataList:responseData.list];
     } failureBlock:^(NSError *error) {
+        [_collectionView.lsy_dataSource endRefresh];
         //show fail toast
     }];
 }

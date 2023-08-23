@@ -48,13 +48,14 @@ typedef void (^ LSYListViewConfigBlock)(LSYListViewDataSource *dataSource);
                      configBlock:(LSYListViewConfigBlock)configBlock
                 loadDataCallBack:(LSYListViewLoadDataBlock)loadData;
 
-/** 停止刷新 */
+/** 停止刷新,一般在请求失败的时候调用 */
 - (void)endRefresh;
-/** 添加新数据并结束刷新 */
+/** 添加新数据并结束刷新,请求成功后调用 */
 - (void)endRefreshWithDataList:(NSArray *)list;
 
-/** 下拉刷新 */
+/** 不下拉,直接刷新 */
 - (void)refresh;
+/** 直接用给定的list作为第一屏数据刷新列表 */
 - (void)refreshWithDataList:(NSArray *)list;
 
 #pragma mark - override

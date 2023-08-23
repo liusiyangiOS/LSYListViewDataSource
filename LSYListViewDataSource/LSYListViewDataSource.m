@@ -52,7 +52,6 @@
             if (!_listView.mj_footer && _options & LSYListViewRefreshOptionFooter) {
                 if ((_total && _dataList.count < _total) || list.count == self.pageSize) {
                     _listView.mj_footer = [self.footerClass performSelector:@selector(footerWithRefreshingBlock:) withObject:^{
-                        _page++;
                         _loadData(self,_page);
                     }];
                 }
@@ -71,6 +70,7 @@
             [_listView.mj_footer endRefreshing];
         }
     }
+    _page++;
     [self reloadData];
 }
 
