@@ -7,6 +7,21 @@
 
 LSYListViewDataSource是基于 [MJRefresh][MJRefresh] 封装的iOS列表视图加载刷新的库。
 
+## 实现的功能
+
+* 一个方法完成99%的功能
+* 自动管理PageSize，PageIndex逻辑
+* Total逻辑判断，没有更多数据时提供显示NoMoreData提示文案和移除footer两种选择
+* 对tableView和collectionView的dataSource进行了封装
+* 加载完第一屏数据后根据是否还有更多数据来决定是否添加footer
+* 可设置只添加header/footer,默认全部添加
+
+## 效果展示
+
+| 默认的header和footer | 自定义的header和footer |
+| :----------------: | :-------------------: |
+|<img width="320" height="692" src="./Example/DefaultHeaderFooter.gif"/>|<img width="320" height="692" src="./Example/CustomHeaderFooter.gif"/>|
+
 ## 安装
 
 你可以在 Podfile 中加入下面一行代码来使用 LSYListViewDataSource
